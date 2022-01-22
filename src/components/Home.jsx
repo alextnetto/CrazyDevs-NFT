@@ -2,7 +2,7 @@ import WalletBalance from "./WalletBalance";
 import { useEffect, useState } from "react";
 
 import { ethers } from "ethers";
-import CrazyDevs from "../artifacts/contracts/MyNFT.sol/CrazyDevs.json";
+import CrazyDevs from "../artifacts/contracts/CrazyDevs.sol/CrazyDevs.json";
 
 const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
 
@@ -28,23 +28,25 @@ const Home = () => {
     <div>
       <WalletBalance />
 
-      <h1>Crazy Devs NFT Collection</h1>
-      {Array(totalMinted + 1)
-        .fill(0)
-        .map((_, i) => (
-          <div key={i} className="col-sm">
-            <NFTImage tokenId={i} getCount={getCount}/>
-          </div>
-        ))}
+      <h1 style={{textAlign: 'center', margin: '1rem'}}>Crazy Devs NFT Collection</h1>
+      <div className="container" style={{display: 'grid', gridTemplateColumns: '1fr 1fr 1fr'}}>
+        {Array(totalMinted + 1)
+          .fill(0)
+          .map((_, i) => (
+            <div key={i} className="col-sm">
+              <NFTImage tokenId={i} getCount={getCount}/>
+            </div>
+          ))}
+      </div>
     </div>
   );
 };
 
 function NFTImage({tokenId, getCount}) {
-  const contentId = "Qmdbpbpy7fA99UkgusTiLhMWzyd3aETeCFrz7NpYaNi6zY";
+  const contentId = "QmavZQhHy4xqSZ25dR9id6mkkxwyQbiZTWdJRLGbmhDQYy";
   const metadataURI = `${contentId}/${tokenId}.json`;
-  //const imageURI = `https://gateway.pinata.cloud/ipfs/${contentId}/${tokenId}.png`;
-  const imageURI = `img/${tokenId}.png`;
+  const imageURI = `https://gateway.pinata.cloud/ipfs/${contentId}/${tokenId}.png`;
+  // const imageURI = `img/${tokenId}.png`;
 
   const [isMinted, setIsMinted] = useState(false);
 
@@ -76,7 +78,7 @@ function NFTImage({tokenId, getCount}) {
     getMintedStatus();
   }, []);
   return (
-    <div className="card" style={{ width: '18rem' }}>
+    <div className="card" style={{ width: '18rem', margin: '3rem', }}>
       <img className="card-img-top" src={isMinted ? imageURI : 'img/placeholder.png'}></img>
       <div className="card-body">
         <h5 className="card-title">ID #{tokenId}</h5>
@@ -88,6 +90,7 @@ function NFTImage({tokenId, getCount}) {
           <button className="btn btn-secondary" onClick={getURI}>
             Taken! Show URI
           </button>
+          
         )}
       </div>
     </div>
