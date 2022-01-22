@@ -21,4 +21,10 @@ module.exports = {
   paths: {
     artifacts: './src/artifacts',
   },
+  networks: {
+    matic: {
+      url: 'https://polygon-mumbai.g.alchemy.com/v2/A3XIkJiPocJh1vbD2leN_IjPaD1KRNJK',
+      accounts: [import.meta.env.VITE_ACCOUNT_PRIVATE_KEY]
+    }
+  }
 };
