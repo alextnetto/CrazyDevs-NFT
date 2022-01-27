@@ -24,10 +24,10 @@ module.exports = {
   paths: {
     artifacts: './src/artifacts',
   },
-  networks: {
-    matic: {
-      url: API_URL,
-      accounts: [PRIVATE_KEY]
-    }
-  }
+  // networks: {
+  //   matic: {
+  //     url: API_URL,
+  //     accounts: [PRIVATE_KEY]
+  //   }
+  // }
 };
