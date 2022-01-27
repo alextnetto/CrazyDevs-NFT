@@ -4,7 +4,9 @@ import { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import CrazyDevs from "../artifacts/contracts/CrazyDevs.sol/CrazyDevs.json";
 
-const contractaddressss = "0xD0A8A77432dc634Dd2567a1D106a988Bf8A7C7CC";
+//const contractaddressss = "0xD0A8A77432dc634Dd2567a1D106a988Bf8A7C7CC";
+const contractaddressss = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+
 
 const provider = new ethers.providers.Web3Provider(window.ethereum);
 
